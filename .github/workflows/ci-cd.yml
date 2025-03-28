@@ -1,0 +1,28 @@
+name: CI/CD Pipeline for Vite Project with Dev Server and Coverage
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    name: Run Dev Server, Tests & Generate Coverage
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Start dev server in background
+        run: |
+          nohup npm run dev > dev.log 2>&1 &
+          # Esperamos 10 segundos para que el servidor se inicie (ajusta el tiempo segÃºn sea necesario)
+          sleep 10
