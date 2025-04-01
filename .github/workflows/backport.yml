@@ -1,0 +1,32 @@
+name: Backport to Main
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  backport:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout develop
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Necesario para tener acceso al historial completo y todas las ramas
+
+      - name: Set up Git
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+      - name: Fetch all branches
+        run: git fetch origin
+
+      - name: Checkout main
+        run: git checkout main
+
+      - name: Merge develop into main
+        run: |
+          git merge origin/develop --no-ff -m "Auto backport: Merge develop into main"
+          git push origin main
