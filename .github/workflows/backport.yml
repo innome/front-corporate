@@ -1,19 +1,18 @@
-name: Backport to Main
+name: Auto Backport PR to Main
 
 on:
   push:
     branches:
-      - develop
+      - develop  
 
 jobs:
   backport:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout develop
+      - name: Checkout code
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0  # Necesario para tener acceso al historial completo y todas las ramas
+          fetch-depth: 0  
 
       - name: Set up Git
         run: |
@@ -23,10 +22,19 @@ jobs:
       - name: Fetch all branches
         run: git fetch origin
 
-      - name: Checkout main
-        run: git checkout main
+      - name: Checkout develop
+        run: git checkout develop
 
-      - name: Merge develop into main
+      - name: Create backport branch
         run: |
-          git merge origin/develop --no-ff -m "Auto backport: Merge develop into main"
-          git push origin main
+          git checkout -b backport-branch
+          git push origin backport-branch  # Empuja la rama backport-branch al remoto
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+        with:
+          title: "Auto Backport: Merge develop into main"
+          body: "Este PR fue creado automáticamente para hacer backport de los cambios de la rama develop hacia main."
+          base: main
+          branch: backport-branch  
+          draft: true 
