@@ -1,4 +1,4 @@
-name: Backport to main and Release
+name: Backport to main
 
 on:
   push:
