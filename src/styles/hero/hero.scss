@@ -1,0 +1,109 @@
+.container_hero {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 900px;
+    margin: 0 auto;
+
+    .logo {
+        transform: translateX(40%);
+        animation: logoMoveX 1.5s ease forwards;
+        animation-delay: 2.3s;
+
+        @media (max-width: 768px) {
+            transform: translateX(0%);
+            animation: logoMoveY 1.5s ease forwards;
+            animation-delay: 2.3s;
+        }
+    }
+
+    .container_presentation {
+        position: relative;
+
+        .name_company {
+            font-family: "Open Sans", sans-serif;
+            font-size: 7rem;
+            text-transform: uppercase;
+            animation: slideInX 1.5s ease forwards;
+            animation-delay: 2.3s;
+
+            @media (max-width: 768px) {
+                font-size: 5rem;
+
+                animation: slideInY 1.5s ease forwards;
+                animation-delay: 2.3s;
+            }
+        }
+
+        .name_slogan {
+            font-family: "TT Wellingtons", sans-serif;
+            font-size: 3rem;
+            letter-spacing: 4px;
+            animation: slideInX 1.5s ease forwards;
+            animation-delay: 3.5s;
+
+            @media (max-width: 1024px) {
+                font-size: 2rem;
+            }
+
+            @media (max-width: 768px) {
+                font-size: 2.2rem;
+
+                animation: slideInY 1.5s ease forwards;
+                animation-delay: 3.5s;
+            }
+        }
+
+        .name_company,
+        .name_slogan {
+            font-weight: bold;
+            text-transform: uppercase;
+            opacity: 0;
+            transform: translateX(-12rem);
+            color: #2e2e2e;
+
+            @media (max-width: 768px) {
+                transform: translateX(0) translateY(-26rem);
+            }
+        }
+
+        @media (max-width: 768px) {
+            text-align: center;
+
+            position: absolute;
+            bottom: 0;
+        }
+    }
+
+    @media (max-width: 768px) {
+        flex-wrap: wrap;
+    }
+}
+
+@keyframes logoMoveX {
+    to {
+        transform: translateX(20%);
+    }
+}
+
+@keyframes logoMoveY {
+    to {
+        transform: translateY(-5rem);
+    }
+}
+
+@keyframes slideInX {
+    to {
+        transform: translateX(-5rem);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInY {
+    to {
+        transform: translateY(-23rem);
+        opacity: 1;
+    }
+}
