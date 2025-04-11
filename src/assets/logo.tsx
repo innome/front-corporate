@@ -8,8 +8,8 @@ export const Logo = ({ colorBase, colorPrimary, className }: PropsLogo) => {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="500"
-            height="500"
+            width="100%" // se adapta al contenedor
+            height="auto"
             viewBox="0 0 375 250"
             preserveAspectRatio="xMidYMid meet"
             className={className}

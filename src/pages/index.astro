@@ -1,10 +1,10 @@
 ---
-import Hero from '@components/Hero.astro';
+import { Home } from '@components/home';
 import Layout from '@layouts/Layout.astro';
 // Styles
 import '../styles/global.scss'
 ---
 
 <Layout>
-	<Hero />
+	<Home client:load />
 </Layout>

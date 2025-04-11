@@ -29,3 +29,24 @@ body {
 a {
     text-decoration: none;
 }
+
+.name_company {
+    font-family: "Open Sans", sans-serif;
+}
+
+.name_slogan {
+    font-family: "TT Wellingtons", sans-serif;
+}
+
+// Message success custom
+[data-rich-colors=true][data-sonner-toast][data-type=success] {
+    background: #bbe6ff !important;
+    border-color: #25516b !important;
+    color: #0B486B !important;
+}
+
+[data-rich-colors=true][data-sonner-toast][data-type=success] [data-close-button] {
+    background: #bbe6ff !important;
+    border-color: #25516b !important;
+    color: #0B486B !important;
+}
