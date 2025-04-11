@@ -31,7 +31,7 @@ export const DetailsInfo = () => {
                 </article>
 
                 <div className="container_infoNetwork">
-                    <CopyEmail text={email} subject="Email">
+                    <CopyEmail text={email} subject="Email" Icon={<Email colorPrimary="#0B486B" />}>
                         <Email colorPrimary="#0B486B" width="30" height="30" />
                     </CopyEmail>
 

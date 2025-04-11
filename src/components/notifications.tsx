@@ -1,7 +1,7 @@
 import { Toaster } from 'sonner';
 
 const NotificationToaster = () => {
-    return <Toaster richColors position="bottom-right" style={{ zIndex: 100 }} />;
+    return <Toaster richColors position="bottom-right" />;
 };
 
 export default NotificationToaster;
