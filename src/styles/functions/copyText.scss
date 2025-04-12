@@ -1,0 +1,10 @@
+.btn_CopyText {
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+
+    &:hover {
+        transform: scale(1.2);
+    }
+}
