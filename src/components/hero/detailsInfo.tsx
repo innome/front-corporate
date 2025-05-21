@@ -31,8 +31,8 @@ export const DetailsInfo = () => {
                 </article>
 
                 <div className="container_infoNetwork">
-                    <CopyEmail text={email} subject="Email" Icon={<Email colorPrimary="#0B486B" />}>
-                        <Email colorPrimary="#0B486B" width="30" height="30" />
+                    <CopyEmail text={email} subject="Email" Icon={<Email colorPrimary="#22266e" />}>
+                        <Email colorPrimary="#22266e" width="30" height="30" />
                     </CopyEmail>
 
                     <a
@@ -42,7 +42,7 @@ export const DetailsInfo = () => {
                         rel="noreferrer"
                         aria-label="Ir a la pagina linkedin"
                     >
-                        <Linkedin colorPrimary="#0B486B" width="30" height="30" />
+                        <Linkedin colorPrimary="#22266e" width="30" height="30" />
                     </a>
 
                     <a
@@ -52,7 +52,7 @@ export const DetailsInfo = () => {
                         rel="noreferrer"
                         aria-label="Ir a la pagina instagram"
                     >
-                        <Instagram colorPrimary="#0B486B" width="30" height="30" />
+                        <Instagram colorPrimary="#22266e" width="30" height="30" />
                     </a>
                 </div>
             </div>

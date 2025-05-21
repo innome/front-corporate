@@ -7,8 +7,7 @@ export const Presentation = () => {
         <section className={`container_logo`}>
             <picture>
                 <Logo
-                    colorBase="#cccccc"
-                    colorPrimary="#2e2e2e"
+                    theme='blue'
                     className="logo"
                 />
             </picture>
