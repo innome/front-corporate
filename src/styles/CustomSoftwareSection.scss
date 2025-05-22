@@ -1,0 +1,32 @@
+/* CustomSoftwareSection.scss */
+.custom-software-section {
+	min-height: 100dvh;
+	background: #0a0a0a;
+	color: #ffffff;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	padding: 4rem 2rem;
+	position: relative;
+	overflow: hidden;
+
+	.line {
+		opacity: 0;
+		font-size: clamp(3rem, 8vw, 6rem);
+		font-weight: 700;
+		line-height: 1.1;
+		text-transform: uppercase;
+		margin: 1.5rem 0;
+		color: #ffffff;
+
+		&.small {
+			font-size: clamp(1.2rem, 4vw, 1.6rem);
+			font-weight: 400;
+			text-transform: none;
+			color: #cccccc;
+			margin-top: 2rem;
+		}
+	}
+}

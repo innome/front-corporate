@@ -1,52 +1,54 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wdth,wght@0,75..100,100..900;1,75..100,100..900&display=swap');
 
 @font-face {
-    font-family: "TT Wellingtons";
-    src: url("/fonts/TT Wellingtons Trial Bold.woff2") format("woff2"),
-        url("/fonts/TT Wellingtons Trial Bold.woff") format("woff");
-    font-weight: bold;
-    font-style: normal;
+	font-family: 'TT Wellingtons';
+	src:
+		url('/fonts/TT Wellingtons Trial Bold.woff2') format('woff2'),
+		url('/fonts/TT Wellingtons Trial Bold.woff') format('woff');
+	font-weight: bold;
+	font-style: normal;
 }
 
 * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    position: relative;
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
 }
 
 html {
-    font-size: 62.5% !important;
+	font-size: 62.5% !important;
+	scroll-behavior: smooth;
 }
 
 body {
-    font-family: "Open Sans", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    display: block;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	display: block;
+	background: #0a0a0a;
 }
 
 a {
-    text-decoration: none;
+	text-decoration: none;
 }
 
 .name_company {
-    font-family: "Open Sans", sans-serif;
+	font-family: 'Open Sans', sans-serif;
 }
 
 .name_slogan {
-    font-family: "TT Wellingtons", sans-serif;
+	font-family: 'TT Wellingtons', sans-serif;
 }
 
-// Message success custom
-[data-rich-colors=true][data-sonner-toast][data-type=success] {
-    background: #bbe6ff !important;
-    border-color: #25516b !important;
-    color: #0B486B !important;
+[data-rich-colors='true'][data-sonner-toast][data-type='success'] {
+	background: #bbe6ff !important;
+	border-color: #25516b !important;
+	color: #0b486b !important;
 }
 
-[data-rich-colors=true][data-sonner-toast][data-type=success] [data-close-button] {
-    background: #bbe6ff !important;
-    border-color: #25516b !important;
-    color: #0B486B !important;
+[data-rich-colors='true'][data-sonner-toast][data-type='success']
+	[data-close-button] {
+	background: #bbe6ff !important;
+	border-color: #25516b !important;
+	color: #0b486b !important;
 }
