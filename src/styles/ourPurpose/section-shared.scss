@@ -1,0 +1,73 @@
+@use "src/styles/variables" as *;
+
+.section-shared {
+	position: relative;
+	// min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	transition: opacity 0.2s ease;
+	padding: 0 2vw;
+	max-width: 150rem;
+	margin: 10rem auto;
+
+	article {
+		background:
+			radial-gradient(ellipse 120% 80% at 30% 20%, var(--color-acrylic) 0%, transparent 60%),
+			radial-gradient(ellipse 100% 60% at 70% 80%, var(--color-acrylic) 0%, transparent 50%);
+		padding: 4rem 2rem;
+		border-radius: 1rem;
+		border: 1px solid var(--color-acrylic);
+		max-width: 70rem;
+		width: 100%;
+
+		.section-title {
+			font-size: $font-heading-lg;
+			font-weight: 600;
+			margin-bottom: 1.5rem;
+			letter-spacing: 0.05rem;
+			text-transform: uppercase;
+			text-align: center;
+			color: var(--color-subtitle);
+		}
+
+		.section-description {
+			font-size: $font-heading-sm;
+			font-weight: 400;
+			line-height: 1.3;
+			max-width: 800px;
+			text-align: center;
+		}
+
+		.section-title,
+		.section-description {
+			opacity: 0;
+			transform: translateY(2rem);
+			transition:
+				opacity 0.8s ease,
+				transform 0.8s ease;
+		}
+	}
+
+	&.is-visible {
+		.section-title {
+			opacity: 1;
+			transform: translateY(0);
+			transition-delay: 0s;
+		}
+		.section-description {
+			opacity: 1;
+			transform: translateY(0);
+			transition-delay: 0.2s;
+		}
+	}
+}
+
+.mission-section {
+	align-items: flex-start;
+}
+
+.vision-section {
+	align-items: flex-end;
+}

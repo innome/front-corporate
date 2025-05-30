@@ -16,6 +16,9 @@
       "@components/*": [
         "src/components/*"
       ],
+      "@contexts/*": [
+        "src/contexts/*"
+      ],
       "@database/*": [
         "src/database/*"
       ],
@@ -30,7 +33,13 @@
       ],
       "@types/*": [
         "src/types/*"
-      ]
+      ],
+      "@hooks/*": [
+        "src/hooks/*"
+      ],
+      "@themes/*": [
+        "src/themes/*"
+      ],
     },
     "jsx": "react-jsx",
     "jsxImportSource": "react"

@@ -1,0 +1,28 @@
+.flow-pulse-bg {
+	position: absolute;
+	inset: 0;
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+	gap: 1.5rem;
+	justify-items: center;
+	align-items: center;
+	padding: 5%;
+	z-index: 0;
+	pointer-events: none;
+	opacity: 1;
+
+	.dot {
+		width: 10px;
+		height: 10px;
+		border-radius: 50%;
+		background: #4c69c1;
+		opacity: 0.1;
+		transform: scale(0.5);
+		transition: all 0.3s ease;
+	}
+
+	.dot.on {
+		opacity: 0.3;
+		transform: scale(1.2);
+	}
+}
