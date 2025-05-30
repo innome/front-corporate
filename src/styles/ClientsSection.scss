@@ -1,0 +1,194 @@
+.clients-section {
+	display: grid;
+	position: relative;
+	height: 100%;
+	z-index: 0;
+	gap: 4rem;
+	grid-template-areas: 'clients-info clients-background';
+	place-content: center;
+	place-items: baseline;
+	margin-bottom: calc(100dvh - 500px);
+	padding: 4rem;
+
+	.clients-info {
+		position: sticky;
+		top: 0;
+		z-index: 1;
+		width: auto;
+		height: 300px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		pointer-events: none;
+		text-align: center;
+		grid-area: clients-info;
+
+		.clients-title {
+			font-size: 2.8rem;
+			margin-bottom: 2rem;
+			text-transform: uppercase;
+			font-weight: 700;
+			text-align: center;
+		}
+
+		.clients-caption {
+			font-size: 1.2rem;
+			line-height: 1.5;
+			max-width: 800px;
+			margin: 0 auto;
+		}
+	}
+
+	.clients-viewport {
+		position: relative;
+		z-index: 1;
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+		grid-area: clients-background;
+
+		.client-wrapper {
+			height: 20dvh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.client-card {
+			flex: 0 0 auto;
+			height: auto;
+			min-height: calc(20dvh - 2rem);
+			border-radius: 1.5rem;
+			padding: 2.5rem;
+			box-shadow:
+				0 4px 16px rgba(0, 0, 0, 0.4),
+				inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			transition:
+				transform 0.4s ease,
+				box-shadow 0.4s ease;
+
+			&:hover {
+				transform: translateY(-10px);
+				box-shadow:
+					0 8px 32px rgba(0, 0, 0, 0.6),
+					inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+			}
+
+			h3 {
+				font-size: 2rem;
+				font-weight: 600;
+				text-align: left;
+			}
+
+			p {
+				font-size: 1.1rem;
+			}
+
+			.client-logo {
+				align-self: flex-start;
+				width: 80px;
+				height: 80px;
+				margin-bottom: 1.5rem;
+				border-radius: 50%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+		}
+	}
+
+	// Tablet and mobile styles
+}
+// Tab
+@media (max-width: 768px) {
+	.clients-section {
+		gap: 2rem;
+		margin-bottom: calc(100dvh - 700px);
+		padding: 2rem;
+
+		.clients-info {
+			.clients-title {
+				font-size: 2.5rem;
+			}
+
+			.clients-caption {
+				font-size: 1rem;
+				line-height: 1.4;
+				max-width: 90%;
+			}
+		}
+
+		.clients-viewport {
+			display: flex;
+			flex-direction: column;
+			gap: 2rem;
+			width: 100%;
+			padding: 0 1rem;
+
+			.client-wrapper {
+				height: auto;
+				width: 100%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+
+			.client-card {
+				width: 100%;
+				max-width: 600px;
+				padding: 2rem;
+			}
+		}
+	}
+}
+
+// Mobile
+@media (max-width: 480px) {
+	.clients-section {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: 1rem;
+		margin-bottom: calc(100dvh - 700px);
+		padding: 1rem;
+
+		.clients-info {
+			position: static;
+
+			.clients-title {
+				font-size: 2rem;
+			}
+
+			.clients-caption {
+				line-height: 1.4;
+				max-width: 90%;
+			}
+		}
+
+		.clients-viewport {
+			display: flex;
+			flex-direction: column;
+			gap: 1rem;
+			width: 100%;
+			padding: 0 1rem;
+
+			.client-wrapper {
+				height: auto;
+				width: 100%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+
+			.client-card {
+				width: 100%;
+				max-width: 600px;
+				padding: 1.5rem;
+			}
+		}
+	}
+}

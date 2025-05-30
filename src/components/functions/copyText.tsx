@@ -3,7 +3,7 @@ import { toast } from 'sonner';
 // Icons
 import { Alert } from "@assets/icons/alert";
 // Styles
-import '@styles/functions/copyText.scss';
+import '@styles/functions/copy-text.scss';
 
 interface Props {
     text: string;

@@ -1,0 +1,41 @@
+@use "src/styles/variables" as *;
+
+.custom-software-section {
+	min-height: 100dvh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	padding: 4rem 2rem;
+	position: relative;
+	overflow: hidden;
+
+	.custom-software-section__container {
+
+		.line {
+			opacity: 0;
+			line-height: 1.1;
+			text-transform: uppercase;
+			margin: 1.5rem 0;
+
+			&:first-child {
+				font-size: $font-display-xl;
+				font-weight: 700;
+			}
+
+			&:nth-child(2) {
+				font-size: $font-display-lg;
+				font-weight: 600;
+			}
+
+			&.small {
+				font-size: $font-heading-sm;
+				font-weight: 400;
+				text-transform: none;
+				margin-top: 2rem;
+				color: var(--color-subtitle);
+			}
+		}
+	}
+}
