@@ -1,35 +1,19 @@
+import { useTheme } from '@contexts/ThemeContext';
+import { getLogoColors } from '@themes/colors';
 interface PropsLogo {
-    theme: 'blue' | 'gray';
     className?: string;
 }
 
-export const Logo = ({ theme = 'blue', className }: PropsLogo) => {
-    // Colores para el tema azul
-    const blueColors = {
-        base: '#e0e0e0',       // Color base (gris claro)
-        primary: '#22266e',    // Azul oscuro
-        secondary: '#3a4c99',  // Azul medio
-        accent: '#3e5dbb',     // Azul más claro
-        stroke: '#3a4c99',     // Color del borde
-    };
+export const Logo = ({ className }: PropsLogo) => {
+    const { currentTheme } = useTheme();
+    const colors = getLogoColors(currentTheme);
 
-    // Colores para el tema gris
-    const grayColors = {
-        base: '#f5f5f5',       // Color base (gris muy claro)
-        primary: '#212230',    // Gris oscuro
-        secondary: '#405259',  // Gris medio
-        accent: '#75899b',     // Gris claro
-        stroke: '#405259',     // Color del borde
-    };
-
-    // Seleccionar el tema de colores
-    const colors = theme === 'blue' ? blueColors : grayColors;
     const positionWidth = 320;
 
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 1000 1000"
+            viewBox="340 188 360 624"
             className={className}
             width="100%"
             height="100%"
@@ -37,11 +21,11 @@ export const Logo = ({ theme = 'blue', className }: PropsLogo) => {
         >
             <defs>
                 <filter id="drop-shadow" x="66.06" y="188.3" width="867.88" height="623.39" filterUnits="userSpaceOnUse">
-                    <feOffset dx="-14" dy="14"/>
-                    <feGaussianBlur result="blur" stdDeviation="6"/>
-                    <feFlood floodColor="#12267c" floodOpacity=".1"/>
-                    <feComposite in2="blur" operator="in"/>
-                    <feComposite in="SourceGraphic"/>
+                    <feOffset dx="-14" dy="14" />
+                    <feGaussianBlur result="blur" stdDeviation="6" />
+                    <feFlood floodColor="#12267c" floodOpacity=".1" />
+                    <feComposite in2="blur" operator="in" />
+                    <feComposite in="SourceGraphic" />
                 </filter>
 
                 <clipPath id="clip-animation">

@@ -1,10 +1,10 @@
 ---
-import { Home } from '@components/home';
+import { AppWrapper } from '@components/AppWrapper';
 import Layout from '@layouts/Layout.astro';
 // Styles
 import '../styles/global.scss'
 ---
 
 <Layout>
-	<Home client:load />
+	<AppWrapper defaultTheme="white" client:load />
 </Layout>
