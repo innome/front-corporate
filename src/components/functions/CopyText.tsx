@@ -2,6 +2,8 @@ import type { ReactElement, ReactNode } from "react";
 import { toast } from 'sonner';
 // Icons
 import { Alert } from "@assets/icons/alert";
+// Hooks
+import { useThemeColors } from '@hooks/useThemeColors';
 // Styles
 import '@styles/functions/copy-text.scss';
 
@@ -12,7 +14,8 @@ interface Props {
     Icon: ReactElement;
 }
 
-const CopyText = ({ text, subject, children, Icon }: Props) => {
+export const CopyText = ({ text, subject, children, Icon }: Props) => {
+    const theme = useThemeColors();
 
     const handleCopy = async () => {
         try {
@@ -21,10 +24,25 @@ const CopyText = ({ text, subject, children, Icon }: Props) => {
                 icon: Icon,
                 // closeButton: true,
                 // duration: Infinity,
+                style: {
+                    fontSize: '1.6rem',
+                    fontWeight: 'bold',
+                    color: theme.secondary,
+                    backgroundColor: theme.primary,
+                    border: `1px solid ${theme.secondary}`,
+                }
             });
         } catch (err) {
-            toast.warning(`Error al copiar el ${subject}`, {
-                icon: <Alert colorPrimary="#f0c005" />,
+            toast.warning(`¡Error al copiar el ${subject}!`, {
+                icon: <Alert colorPrimary={theme.secondary} />,
+                // duration: Infinity,
+                style: {
+                    fontSize: '1.6rem',
+                    fontWeight: 'bold',
+                    color: theme.secondary,
+                    backgroundColor: theme.primary,
+                    border: `1px solid ${theme.secondary}`,
+                }
             });
             console.error(err);
         }
@@ -38,5 +56,3 @@ const CopyText = ({ text, subject, children, Icon }: Props) => {
         </>
     );
 };
-
-export default CopyText;

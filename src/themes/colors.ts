@@ -7,10 +7,14 @@ export const THEME_COLORS = {
             accent: '#3e5dbb',     // Azul más claro
             stroke: '#3a4c99',     // Color del borde
         },
-        background: '#ffffff',
+        primary: '#ffffff',
         acrylic: '#4a67c230',
-        color: '#22266e',
+        acrylicInvert: '#ffffffa6',
+        secondary: '#22266e',
         subtitle: '#6c7aa8',
+        subtitleInvert: '#e8efff',
+
+        subSecondaryInvert: '#e4e9f6',
     },
     gray: {
         logo: {
@@ -20,10 +24,14 @@ export const THEME_COLORS = {
             accent: '#75899b',     // Gris claro
             stroke: '#405259',     // Color del borde
         },
-        background: '#ebeff7',
+        primary: '#ebeff7',
         acrylic: '#8296a828',
-        color: '#212230',
+        acrylicInvert: '#ebeff7a6',
+        secondary: '#212230',
         subtitle: '#75899b',
+        subtitleInvert: '#c5d0da',
+
+        subSecondaryInvert: '#c2d3ff',
     },
     white: {
         logo: {
@@ -33,10 +41,14 @@ export const THEME_COLORS = {
             accent: '#ddd',        // Gris muy claro
             stroke: '#ffffff',     // Borde blanco
         },
-        background: '#161616',
+        primary: '#161616',
         acrylic: '#f0f0f015',
-        color: '#ffffff',
+        acrylicInvert: '#161616a6',
+        secondary: '#ffffff',
         subtitle: '#c1c1c1',
+        subtitleInvert: '#4a4a4a',
+
+        subSecondaryInvert: '#22266e',
     }
 } as const;
 

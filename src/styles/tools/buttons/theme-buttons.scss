@@ -6,9 +6,9 @@
 }
 
 .theme-toggle-btn {
-    width: 45px;
-    height: 45px;
-    border-radius: 99rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 1rem;
     border: none;
     cursor: pointer;
     display: flex;
@@ -48,10 +48,5 @@
 
     &:active .theme-icon {
         transform: rotate(180deg);
-    }
-
-    @media (max-width: 768px) {
-        width: 40px;
-        height: 40px;
     }
 }
