@@ -26,11 +26,15 @@ export const ThemeProvider = ({ children, defaultTheme = 'blue' }: ThemeProvider
 
             // Aplicar nueva clase y estilos
             document.body.classList.add(`theme-${theme}`);
-            document.body.style.backgroundColor = themeColors.background;
-            document.body.style.color = themeColors.color;
-            document.body.style.setProperty('--color-background', themeColors.background);
+            document.body.style.backgroundColor = themeColors.primary;
+            document.body.style.color = themeColors.secondary;
+            document.body.style.setProperty('--color-primary', themeColors.primary);
+            document.body.style.setProperty('--color-secondary', themeColors.secondary);
             document.body.style.setProperty('--color-subtitle', themeColors.subtitle);
+            document.body.style.setProperty('--color-subTitleInvert', themeColors.subtitleInvert);
             document.body.style.setProperty('--color-acrylic', themeColors.acrylic);
+            document.body.style.setProperty('--color-acrylicInvert', themeColors.acrylicInvert);
+            document.body.style.setProperty('--color-subSecondaryInvert', themeColors.subSecondaryInvert);
         }
     };
 
@@ -51,15 +55,17 @@ export const ThemeProvider = ({ children, defaultTheme = 'blue' }: ThemeProvider
     };
 
     useEffect(() => {
-        // Recuperar tema guardado al cargar
         if (typeof window !== 'undefined') {
-            const savedTheme = localStorage.getItem('nival-theme') as ThemeType;
+            const savedTheme = localStorage.getItem('nival-theme') as ThemeType | null;
 
             if (savedTheme && VALID_THEMES.includes(savedTheme)) {
                 setCurrentTheme(savedTheme);
                 applyThemeToBody(savedTheme);
             } else {
-                applyThemeToBody(defaultTheme);
+                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                const systemTheme: ThemeType = prefersDark ? 'white' : 'blue';
+                setCurrentTheme(systemTheme);
+                applyThemeToBody(systemTheme);
             }
         }
     }, [defaultTheme]);

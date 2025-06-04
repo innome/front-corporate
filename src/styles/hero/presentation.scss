@@ -1,96 +1,66 @@
 .container_logo {
     width: 100%;
-    height: 100vh;
+    height: 8rem;
     display: flex;
     justify-content: center;
     align-items: center;
     align-content: center;
     flex-flow: row wrap;
-    max-width: 900px;
+    max-width: 100%;
     margin: 0 auto;
+    padding: 0 2rem;
     position: fixed;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
     z-index: 100;
+    background-color: var(--color-acrylicInvert);
+    backdrop-filter: blur(10px);
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
 
-    animation: container-to-navbar linear forwards;
-    animation-timeline: scroll();
-    animation-range: 0vh 80vh;
-
     picture {
-        max-width: 20rem;
+        max-width: 10rem;
         width: 100%;
         height: 100%;
         z-index: 10;
 
         transform: translateX(65%);
-        animation:
-            picture-move-x 1.5s ease forwards,
-            picture-to-navbar linear forwards;
+        animation: picture-move-x 1.5s ease forwards;
         animation-delay: 2.3s;
-        animation-timeline: auto, scroll();
-        animation-range: 0vh 60vh;
 
-        @media (max-width: 768px) {
-            height: auto;
-            transform: translateY(0);
-            animation:
-                picture-move-y 1.5s ease forwards,
-                picture-to-navbar-mobile linear forwards;
-            animation-delay: 2.3s, 0s;
-            animation-timeline: auto, scroll();
-            animation-range: 0vh 60vh;
+        @media (max-width: 480px) {
+            animation: picture-move-x-mobile 1.5s ease forwards;
+            animation-delay: 2.3s;
         }
     }
 
     .container_presentation {
-        animation: text-container-to-navbar linear forwards;
-        animation-timeline: scroll();
-        animation-range: 0vh 60vh;
+        transform: translateX(2rem);
 
         .name_company {
-            font-size: 7rem;
+            font-size: 2.8rem;
             font-weight: 500;
             text-transform: uppercase;
-            animation:
-                fadeIn 1.5s ease forwards,
-                company-to-navbar linear forwards;
-            animation-delay: 2.3s, 0s;
-            animation-timeline: auto, scroll();
-            animation-range: 0vh 60vh;
+            animation: fadeIn 1.5s ease forwards;
+            animation-delay: 2.3s;
 
             @media (max-width: 768px) {
-                animation:
-                    fadeIn 1.5s ease forwards,
-                    company-to-navbar-mobile linear forwards;
-                animation-delay: 2.3s, 0s;
-                animation-timeline: auto, scroll();
-                animation-range: 0vh 60vh;
+                animation: fadeIn 1.5s ease forwards;
+                animation-delay: 2.3s;
             }
         }
 
         .name_slogan {
-            font-size: 3rem;
+            font-size: 1.4rem;
             font-weight: 200;
-            animation:
-                fadeIn 1.5s ease forwards,
-                slogan-to-navbar linear forwards;
-            animation-delay: 3.5s, 0s;
-            animation-timeline: auto, scroll();
-            animation-range: 0vh 60vh;
+            animation: fadeIn 1.5s ease forwards;
+            animation-delay: 3.5s;
             position: relative;
-            top: -2rem;
+            top: -1rem;
 
             @media (max-width: 768px) {
-                animation:
-                    fadeIn 1.5s ease forwards,
-                    slogan-to-navbar-mobile linear forwards;
-                animation-delay: 3.5s, 0s;
-                animation-timeline: auto, scroll();
-                animation-range: 0vh 60vh;
-                top: -2rem;
+                animation: fadeIn 1.5s ease forwards;
+                animation-delay: 3.5s;
             }
         }
 
@@ -100,19 +70,9 @@
             opacity: 0;
         }
 
-        @media (max-width: 768px) {
-            text-align: center;
-
-            animation: text-container-to-navbar-mobile linear forwards;
-            animation-timeline: scroll();
-            animation-range: 0vh 60vh;
+        @media (max-width: 480px) {
+            transform: translateX(0rem);
         }
-    }
-
-    @media (max-width: 768px) {
-        animation: container-to-navbar-mobile linear forwards;
-        animation-timeline: scroll();
-        animation-range: 0vh 70vh;
     }
 }
 
@@ -122,87 +82,15 @@
     }
 }
 
-@keyframes container-to-navbar {
-    from {
-        height: 100vh;
-        max-width: 100%;
-        padding: 0;
-        box-shadow: none;
-    }
-    to {
-        height: 80px;
-        max-width: 100%;
-        padding: 0 2rem;
-        backdrop-filter: blur(10px);
-    }
-}
-
-@keyframes picture-to-navbar {
-    from {
-        max-width: 20rem;
-    }
-    to {
-        max-width: 10rem;
-    }
-}
-
 @keyframes picture-move-x {
     to {
         transform: translateX(40%);
     }
 }
 
-@keyframes text-container-to-navbar {
-    0% {
-        transform: translateX(7rem);
-    }
-    100% {
-        transform: translateX(3rem);
-    }
-}
-
-@keyframes company-to-navbar {
-    from {
-        font-size: 7rem;
-    }
+@keyframes picture-move-x-mobile {
     to {
-        font-size: 2.8rem;
-    }
-}
-
-@keyframes slogan-to-navbar {
-    from {
-        font-size: 3rem;
-        top: -2rem;
-    }
-    to {
-        font-size: 1.4rem;
-        top: -1rem;
-    }
-}
-
-// Nuevas animaciones específicas para MOBILE
-@keyframes container-to-navbar-mobile {
-    from {
-        height: 100vh;
-        background-color: transparent;
-        max-width: 100%;
-        padding: 0;
-        box-shadow: none;
-    }
-    to {
-        height: 80px;
-        background-color: var(--color-acrylic);
-        max-width: 100%;
-        padding: 0 1rem;
-        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-        backdrop-filter: blur(10px);
-    }
-}
-
-@keyframes picture-move-y {
-    to {
-        transform: translateX(0) translateY(0);
+        transform: translateX(20%);
     }
 }
 
@@ -212,34 +100,5 @@
     }
     to {
         max-width: 4rem;
-    }
-}
-
-@keyframes text-container-to-navbar-mobile {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(0);
-    }
-}
-
-@keyframes company-to-navbar-mobile {
-    from {
-        font-size: 7rem;
-    }
-    to {
-        font-size: 3rem;
-    }
-}
-
-@keyframes slogan-to-navbar-mobile {
-    from {
-        font-size: 3rem;
-        top: -2rem;
-    }
-    to {
-        font-size: 1.4rem;
-        top: -0.5rem;
     }
 }
