@@ -1,57 +1,38 @@
 // Icons
-import { Logo } from '@assets/logo';
 import { Email } from '@assets/icons/email';
 import { Linkedin } from '@assets/icons/linkedIn';
 import { Instagram } from '@assets/icons/instagram';
 // Styles
 import '@styles/footer.scss';
 // Components
-import CopyEmail from '@components/functions/CopyText';
+import { CopyText } from '@components/functions/CopyText';
 import NotificationToaster from '@components/Notifications';
-import { useTheme } from '@contexts/ThemeContext';
+// Hooks
+import { useThemeColors } from '@hooks/useThemeColors';
 // Database
 import InfoData from '@database/info';
 
 export const Footer = () => {
-	const { currentTheme } = useTheme();
 	const { email, linkedin, instagram } = InfoData.contactRed;
-
-	// Color del icono dependiendo del tema
-    const getIconColor = () => {
-        switch (currentTheme) {
-            case 'blue':
-                return '#22266e';
-            case 'gray':
-                return '#212230';
-            case 'white':
-                return '#ffffff';
-            default:
-                return '#ffffff';
-        }
-    };
+	const theme = useThemeColors();
 
 	return (
 		<footer className='container-footer'>
 			<NotificationToaster />
-			<div className='container-footer-presentation'>
-				<picture className='logo-footer'>
-					<Logo />
-				</picture>
-				<article className='container-names'>
-					<p className="name_company">Nival</p>
-					<p className="name_slogan">Chasing balance</p>
-				</article>
-			</div>
 			<div className='container-footer-detailsInfo'>
+				<h3 className='footer-title'>
+					¿Tienes un proyecto en mente o quieres saber cómo podemos ayudarte?
+				</h3>
 				<p className='footer-subtitle'>
-					Desarrollamos soluciones de software como servicio (SaaS) adaptadas a las necesidades de tu negocio.
+					Escríbenos a nuestro orreo electrónico.
+					Nuestro equipo está listo para atenderte y ofrecerte asesoría personalizada acorde a tus necesidades y objetivos.
 				</p>
 				<div className='footer-links'>
-					<CopyEmail text={email} subject="Email" Icon={<Email colorPrimary={getIconColor()} />}>
-						<Email colorPrimary={getIconColor()} width="30" height="30" />
-					</CopyEmail>
+					<CopyText text={email} subject="Email" Icon={<Email colorPrimary={theme.secondary} />}>
+						<Email className='btn_link' colorPrimary={theme.secondary} width="30" height="30" />
+					</CopyText>
 
-					<a
+					{/* <a
 						href={linkedin}
 						target="_blank"
 						className="btn_link btn_linkedIn"
@@ -69,11 +50,11 @@ export const Footer = () => {
 						aria-label="Ir a la pagina instagram"
 					>
 						<Instagram colorPrimary={getIconColor()} width="30" height="30" />
-					</a>
+					</a> */}
 				</div>
 			</div>
 			<p className='footer-copyright'>
-				&copy; {new Date().getFullYear()} Nival. Todos los derechos reservados.
+				&copy; 2025 Nival. Todos los derechos reservados.
 			</p>
 		</footer>
 	);

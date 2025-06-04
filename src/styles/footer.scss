@@ -1,31 +1,17 @@
 @use "src/styles/variables" as *;
 
 .container-footer {
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	grid-template-rows: 1fr;
-	grid-column-gap: 5rem;
-	grid-row-gap: 0px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-flow: column wrap;
 	padding-top: 4rem;
-	flex-wrap: wrap;
 	box-shadow: 0 2px 20px var(--color-acrylic);
 
 	.container-footer-presentation {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		grid-area: 1 / 1 / 2 / 2;
-
-		.logo-footer {
-			max-width: 10rem;
-			width: 100%;
-			height: 100%;
-			display: block;
-
-			@media (max-width: 768px) {
-				max-width: 7rem;
-			}
-		}
 
 		.container-names {
 
@@ -52,17 +38,28 @@
 		justify-content: center;
 		align-items: center;
 		flex-direction: column;
-		grid-area: 1 / 2 / 2 / 3;
-		max-width: 35rem;
+		max-width: 40rem;
 
-		.footer-subtitle {
+		.footer-title {
 			font-size: $font-heading-sm;
 			text-align: center;
+			margin-bottom: 1rem;
+		}
+
+		.footer-subtitle {
+			font-size: $font-body-lg;
+			text-align: center;
+
+			.btn_email {
+				color: var(--color-secondary);
+                font-weight: bold;
+                font-size: $font-body-lg
+            }
 		}
 
 		.footer-links {
 			display: grid;
-			grid-template-columns: repeat(3, 1fr);
+			grid-template-columns: repeat(1, 1fr);
 			grid-template-rows: 1fr;
 			grid-column-gap: 20px;
 			grid-row-gap: 0px;
@@ -79,8 +76,9 @@
 		}
 
 		@media (max-width: 768px) {
-			max-width: 25rem;
+			max-width: 84vw;
 			margin-top: 2rem;
+			width: 100%;
 		}
 	}
 
@@ -88,9 +86,8 @@
 		width: 100%;
 		font-size: $font-body-md;
 		text-align: center;
-		margin: 4rem 0 2rem 0;
+		margin: 0rem 0 2rem 0;
 		padding: 2rem 0 0 0;
-		grid-area: 2 / 1 / 3 / 3;
 	}
 
 	@media (max-width: 768px) {

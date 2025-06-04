@@ -1,12 +1,12 @@
 // src/components/Home.tsx
 import { useRef, lazy, Suspense } from 'react';
 
-import { ThemeButton } from './theme/ThemeButton';
 import { Presentation } from './hero/Presentation';
 import { HeroSection } from './hero/HeroSection';
 import { MissionSection } from './ourPurpose/MissionSection';
 import { VisionSection } from './ourPurpose/VisionSection';
 import { ClientsSection } from './ClientsSection';
+import { WhatDoWeDo } from './ourServices/WhatDoWeDo';
 import { Footer } from './Footer';
 import { ParallaxSection } from './ParallaxSection';
 
@@ -21,11 +21,10 @@ export const Home = () => {
 
 	return (
 		<main>
-			<ThemeButton />
 			<Presentation />
 			<HeroSection />
 
-			{/* <ParallaxSection
+			<ParallaxSection
 				ref={parallaxRef}
 				background={
 					<Suspense fallback={null}>
@@ -38,10 +37,9 @@ export const Home = () => {
 			>
 				<MissionSection />
 				<VisionSection />
-			</ParallaxSection> */}
+			</ParallaxSection>
 
-			<MissionSection />
-			<VisionSection />
+			<WhatDoWeDo />
 
 			{/* <ClientsSection /> */}
 			<Footer />

@@ -19,23 +19,9 @@ body {
     font-style: normal;
     display: block;
 	position: relative;
-	padding-top: 95vh;
+	overflow-x: hidden;
 }
 
 a {
 	text-decoration: none;
-}
-
-// Message success custom
-[data-rich-colors=true][data-sonner-toast][data-type=success] {
-    background: var(--color-background) !important;
-	border-color: var(--color-acrylic) !important;
-	color: var(--color-subtitle) !important;
-}
-
-[data-rich-colors='true'][data-sonner-toast][data-type='success']
-	[data-close-button] {
-	background: var(--color-background) !important;
-	border-color: var(--color-acrylic) !important;
-	color: var(--color-subtitle) !important;
 }

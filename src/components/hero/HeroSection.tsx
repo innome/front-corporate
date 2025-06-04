@@ -8,15 +8,20 @@ import '@styles/hero/hero-section.scss';
 export const HeroSection = () => {
 
 	const sectionRef = useScrollAnimation({
-    animation: {
-			opacity: [0, 1],
-			translateY: [80, 0],
-			duration: 1000,
-			easing: 'easeOutQuart',
-			staggerDelay: 200,
-		},
-			observer: {
-			threshold: 0.2,
+		animations: [
+			{
+				selector: '.line',
+				animation: {
+					opacity: [0, 1],
+					translateY: [80, 0],
+					duration: 1000,
+					easing: 'easeOutQuart',
+					staggerDelay: 200,
+				},
+			},
+		],
+		observer: {
+			threshold: 0.3,
 			rootMargin: '0px 0px -100px 0px',
 		},
 		onlyScrollDown: false,
