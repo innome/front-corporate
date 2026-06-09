@@ -1,19 +1,18 @@
 // Icons
 import { Email } from '@assets/icons/email';
-import { Linkedin } from '@assets/icons/linkedIn';
-import { Instagram } from '@assets/icons/instagram';
 // Styles
 import '@styles/footer.scss';
 // Components
 import { CopyText } from '@components/functions/CopyText';
 import NotificationToaster from '@components/Notifications';
+import { footerNavGroups, ROUTES } from '@components/navbar/nav-data';
 // Hooks
 import { useThemeColors } from '@hooks/useThemeColors';
-// Database
 import InfoData from '@database/info';
 
 export const Footer = () => {
-	const { email, linkedin, instagram } = InfoData.contactRed;
+	const { email } = InfoData.contactRed;
+	const { brandName } = InfoData;
 	const theme = useThemeColors();
 
 	return (
@@ -24,37 +23,49 @@ export const Footer = () => {
 					¿Tienes un proyecto en mente o quieres saber cómo podemos ayudarte?
 				</h3>
 				<p className='footer-subtitle'>
-					Escríbenos a nuestro orreo electrónico.
-					Nuestro equipo está listo para atenderte y ofrecerte asesoría personalizada acorde a tus necesidades y objetivos.
+					Completa el formulario de contacto o escríbenos directamente.
 				</p>
 				<div className='footer-links'>
-					<CopyText text={email} subject="Email" Icon={<Email colorPrimary={theme.secondary} />}>
+					<a href={ROUTES.contacto} className="footer-form-link">
+						Ir al formulario de contacto
+					</a>
+					<a href={`mailto:${email}`} className="footer-email-link">
+						{email}
+					</a>
+					<CopyText text={email} subject="Correo" Icon={<Email colorPrimary={theme.secondary} />}>
 						<Email className='btn_link' colorPrimary={theme.secondary} width="30" height="30" />
 					</CopyText>
-
-					{/* <a
-						href={linkedin}
-						target="_blank"
-						className="btn_link btn_linkedIn"
-						rel="noreferrer"
-						aria-label="Ir a la pagina linkedin"
-					>
-						<Linkedin colorPrimary={getIconColor()} width="30" height="30" />
-					</a>
-
-					<a
-						href={instagram}
-						target="_blank"
-						className="btn_link btn_instagram"
-						rel="noreferrer"
-						aria-label="Ir a la pagina instagram"
-					>
-						<Instagram colorPrimary={getIconColor()} width="30" height="30" />
-					</a> */}
 				</div>
 			</div>
+
+			<nav className="footer-nav" aria-label="Enlaces del sitio">
+				{footerNavGroups.map((group) => (
+					<div key={group.title} className="footer-nav__group">
+						<h4 className="footer-nav__title">{group.title}</h4>
+						<ul className="footer-nav__list">
+							{group.links.map((link) => (
+								<li key={link.label}>
+									<a href={link.href}>{link.label}</a>
+								</li>
+							))}
+						</ul>
+					</div>
+				))}
+				<div className="footer-nav__group">
+					<h4 className="footer-nav__title">Contacto</h4>
+					<ul className="footer-nav__list">
+						<li>
+							<a href={ROUTES.contacto}>Formulario de contacto</a>
+						</li>
+						<li>
+							<a href={`mailto:${email}`}>{email}</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+
 			<p className='footer-copyright'>
-				&copy; 2025 Nival. Todos los derechos reservados.
+				&copy; 2025 {brandName}. Todos los derechos reservados.
 			</p>
 		</footer>
 	);

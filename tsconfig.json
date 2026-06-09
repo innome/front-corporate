@@ -40,6 +40,15 @@
       "@themes/*": [
         "src/themes/*"
       ],
+      "@data/*": [
+        "src/data/*"
+      ],
+      "@entries/*": [
+        "src/entries/*"
+      ],
+      "@utils/*": [
+        "src/utils/*"
+      ],
     },
     "jsx": "react-jsx",
     "jsxImportSource": "react"
