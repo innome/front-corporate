@@ -1,0 +1,161 @@
+@use "src/styles/variables" as *;
+
+.products-section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 10rem 2rem;
+	max-width: 120rem;
+	margin: 0 auto;
+
+	&--embedded {
+		padding-top: 2rem;
+		min-height: unset;
+	}
+
+	.products-fade {
+		opacity: 0;
+	}
+
+	&__header {
+		text-align: center;
+		max-width: 62ch;
+		margin-bottom: 5rem;
+	}
+
+	&__eyebrow {
+		font-size: $font-body-md;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.12em;
+		color: var(--color-subtitle);
+		margin-bottom: 1rem;
+	}
+
+	&__title {
+		font-size: $font-heading-lg;
+		font-weight: 600;
+		margin-bottom: 1.2rem;
+	}
+
+	&__subtitle {
+		font-size: $font-body-lg;
+		color: var(--color-subtitleInvert);
+		line-height: 1.6;
+	}
+
+	&__grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 2rem;
+		width: 100%;
+
+		@media (min-width: 768px) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	&__card {
+		position: relative;
+		background: var(--color-acrylic);
+		border-radius: 2rem;
+		box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.08);
+		padding: 2.4rem;
+		display: flex;
+		flex-direction: column;
+
+		&--featured {
+			border: 2px solid var(--color-secondary);
+
+			@media (min-width: 768px) {
+				grid-column: 1 / -1;
+				display: grid;
+				grid-template-columns: 1fr auto;
+				grid-template-rows: auto auto 1fr auto;
+				column-gap: 2rem;
+				align-items: start;
+
+				.products-section__badge {
+					grid-column: 1;
+				}
+
+				.products-section__card-name,
+				.products-section__card-tagline {
+					grid-column: 1;
+				}
+
+				.products-section__card-desc,
+				.products-section__card-audience {
+					grid-column: 1;
+				}
+
+				.products-section__link {
+					grid-column: 2;
+					grid-row: 1 / -1;
+					align-self: center;
+				}
+			}
+		}
+	}
+
+	&__badge {
+		display: inline-block;
+		align-self: flex-start;
+		padding: 0.5rem 1.2rem;
+		border-radius: 999px;
+		background: var(--color-secondary);
+		color: var(--color-primary);
+		font-size: $font-body-sm;
+		font-weight: 700;
+		margin-bottom: 1.2rem;
+	}
+
+	&__card-name {
+		font-size: $font-heading-sm;
+		font-weight: 700;
+		margin-bottom: 0.6rem;
+	}
+
+	&__card-tagline {
+		font-size: $font-body-lg;
+		font-weight: 600;
+		color: var(--color-secondary);
+		margin-bottom: 1.2rem;
+	}
+
+	&__card-desc {
+		font-size: $font-body-md;
+		color: var(--color-subtitleInvert);
+		line-height: 1.7;
+		flex: 1;
+		margin-bottom: 1.2rem;
+	}
+
+	&__card-audience {
+		font-size: $font-body-sm;
+		font-weight: 600;
+		color: var(--color-subtitle);
+		margin-bottom: 2rem;
+	}
+
+	&__link {
+		align-self: flex-start;
+		padding: 1rem 1.8rem;
+		border-radius: 999px;
+		background: var(--color-secondary);
+		color: var(--color-primary);
+		font-size: $font-body-sm;
+		font-weight: 600;
+		transition: transform 0.2s ease, opacity 0.2s ease;
+
+		&:hover {
+			transform: translateY(-2px);
+		}
+
+		&--secondary {
+			background: transparent;
+			color: var(--color-secondary);
+			border: 1px solid var(--color-subtitle);
+		}
+	}
+}

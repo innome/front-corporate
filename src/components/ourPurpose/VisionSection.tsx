@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { useRevealOnScroll } from '@hooks/useRevealOnScroll';
 import { useScrollFade } from '@hooks/useScrollFade';
+import { companyVision } from '@data/company-content';
 import '@styles/ourPurpose/section-shared.scss';
 
 export const VisionSection = () => {
@@ -12,9 +13,7 @@ export const VisionSection = () => {
 		<section ref={ref} className='vision-section section-shared'>
 			<article>
 				<h2 className='section-title'>Visión</h2>
-				<p className='section-description'>
-					Ser la empresa líder en Latinoamérica en tercerización de servicios y desarrollo de software a medida para empresas emprendedoras, destacándonos por la excelencia, la innovación y el compromiso social. Aspiramos a ampliar nuestra presencia global mientras impulsamos el desarrollo económico y tecnológico en Colombia, generando oportunidades que transformen positivamente nuestra sociedad.
-				</p>
+				<p className='section-description'>{companyVision}</p>
 			</article>
 		</section>
 	);

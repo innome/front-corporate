@@ -1,0 +1,65 @@
+@use "src/styles/variables" as *;
+
+.overview-grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 2rem;
+	max-width: 120rem;
+	margin: 0 auto;
+	padding: 2rem 2rem 10rem;
+
+	@media (min-width: 768px) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	@media (min-width: 1024px) {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	.overview-fade {
+		opacity: 0;
+	}
+
+	&__card {
+		display: flex;
+		flex-direction: column;
+		background: var(--color-acrylic);
+		border-radius: 2rem;
+		box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.08);
+		padding: 2.4rem;
+		color: var(--color-secondary);
+		transition: transform 0.25s ease;
+
+		&:hover {
+			transform: translateY(-4px);
+		}
+
+		h2 {
+			font-size: $font-heading-sm;
+			font-weight: 600;
+			margin-bottom: 0.8rem;
+		}
+
+		p {
+			font-size: $font-body-md;
+			color: var(--color-subtitleInvert);
+			line-height: 1.6;
+			flex: 1;
+			margin-bottom: 1.2rem;
+		}
+	}
+
+	&__category {
+		font-size: $font-body-sm;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		color: var(--color-subtitle);
+		margin-bottom: 0.8rem;
+	}
+
+	&__link {
+		font-size: $font-body-sm;
+		font-weight: 600;
+	}
+}

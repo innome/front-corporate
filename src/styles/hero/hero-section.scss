@@ -37,5 +37,10 @@
 				color: var(--color-subtitle);
 			}
 		}
+
+		.hero-cta {
+			opacity: 0;
+			margin-top: 3rem;
+		}
 	}
 }

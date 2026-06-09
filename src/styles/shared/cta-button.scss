@@ -1,0 +1,51 @@
+@use "src/styles/variables" as *;
+
+.nival-cta {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.8rem;
+	padding: 1.2rem 2.4rem;
+	border-radius: 999px;
+	font-size: $font-body-md;
+	font-weight: 600;
+	border: 2px solid transparent;
+	cursor: pointer;
+	transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+	text-decoration: none;
+
+	&:hover {
+		transform: translateY(-2px);
+	}
+
+	&:focus-visible {
+		outline: 2px solid var(--color-secondary);
+		outline-offset: 3px;
+	}
+
+	&--primary {
+		background: var(--color-secondary);
+		color: var(--color-primary);
+		box-shadow: 0 1rem 2.4rem rgba(0, 0, 0, 0.12);
+
+		&:hover {
+			box-shadow: 0 1.4rem 3rem rgba(0, 0, 0, 0.18);
+		}
+	}
+
+	&--secondary {
+		background: var(--color-acrylic);
+		color: var(--color-secondary);
+		border-color: var(--color-subtitle);
+
+		&:hover {
+			background: var(--color-acrylicInvert);
+		}
+	}
+
+	&--ghost {
+		background: transparent;
+		color: var(--color-secondary);
+		border-color: var(--color-subtitle);
+	}
+}
