@@ -1,47 +1,54 @@
-// src/components/Home.tsx
-import { useRef, lazy, Suspense } from 'react';
-
-import { Presentation } from './hero/Presentation';
+import InfoData from '@database/info';
 import { HeroSection } from './hero/HeroSection';
-import { MissionSection } from './ourPurpose/MissionSection';
-import { VisionSection } from './ourPurpose/VisionSection';
-import { ClientsSection } from './ClientsSection';
-import { WhatDoWeDo } from './ourServices/WhatDoWeDo';
 import { Footer } from './Footer';
-import { ParallaxSection } from './ParallaxSection';
-
-const FlowAnimation = lazy(() =>
-	import('./animations/FlowAnimation').then((mod) => ({ default: mod.FlowAnimation })),
-);
-
-const pathD = 'M 0 200 Q 200 100, 400 200 T 800 200';
+import { homeQuickLinks, ROUTES } from '@components/navbar/nav-data';
+import { useScrollAnimation } from '@hooks/useScrollAnimationOptions';
+import '@styles/home/home-landing.scss';
+import '@styles/shared/cta-button.scss';
 
 export const Home = () => {
-	const parallaxRef = useRef<HTMLElement>(null);
+	const sectionRef = useScrollAnimation({
+		animations: [
+			{
+				selector: '.home-link-fade',
+				animation: {
+					opacity: [0, 1],
+					translateY: [40, 0],
+					duration: 800,
+					easing: 'easeOutQuart',
+					staggerDelay: 100,
+				},
+			},
+		],
+		observer: { threshold: 0.1 },
+		onlyScrollDown: false,
+	});
 
 	return (
 		<main>
-			<Presentation />
 			<HeroSection />
 
-			<ParallaxSection
-				ref={parallaxRef}
-				background={
-					<Suspense fallback={null}>
-						<FlowAnimation
-							pathD={pathD}
-							trackRef={parallaxRef}
-						/>
-					</Suspense>
-				}
-			>
-				<MissionSection />
-				<VisionSection />
-			</ParallaxSection>
+			<section className="home-links" ref={sectionRef}>
+				<div className="home-links__header home-link-fade">
+					<h2>Explora {InfoData.brandName}</h2>
+					<p>Cada sección tiene su propia página para que la revises con calma.</p>
+				</div>
+				<div className="home-links__grid">
+					{homeQuickLinks.map((link) => (
+						<a key={link.href} href={link.href} className="home-links__card home-link-fade">
+							<h3>{link.label}</h3>
+							<p>{link.description}</p>
+							<span className="home-links__arrow">Ver más →</span>
+						</a>
+					))}
+				</div>
+				<div className="home-links__cta home-link-fade">
+					<a href={ROUTES.contacto} className="nival-cta nival-cta--primary">
+						Contáctanos
+					</a>
+				</div>
+			</section>
 
-			<WhatDoWeDo />
-
-			{/* <ClientsSection /> */}
 			<Footer />
 		</main>
 	);

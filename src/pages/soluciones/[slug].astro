@@ -1,0 +1,18 @@
+---
+import { SolucionDetailEntry } from '@entries/SolucionDetailEntry';
+import { solucionesPages } from '@data/pages-content';
+import Layout from '@layouts/Layout.astro';
+
+export function getStaticPaths() {
+	return solucionesPages.map((content) => ({
+		params: { slug: content.slug },
+		props: { content },
+	}));
+}
+
+const { content } = Astro.props;
+---
+
+<Layout>
+	<SolucionDetailEntry client:load content={content} />
+</Layout>

@@ -1,0 +1,64 @@
+@use "src/styles/variables" as *;
+
+.page-detail {
+	max-width: 80rem;
+	margin: 0 auto;
+	padding: 2rem 2rem 10rem;
+
+	.detail-fade {
+		opacity: 0;
+	}
+
+	&__back {
+		display: inline-block;
+		font-size: $font-body-md;
+		color: var(--color-subtitleInvert);
+		margin-bottom: 2rem;
+		transition: color 0.2s ease;
+
+		&:hover {
+			color: var(--color-secondary);
+		}
+	}
+
+	&__card {
+		background: var(--color-acrylic);
+		border-radius: 2rem;
+		box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.08);
+		padding: 3rem 2.4rem;
+
+		@media (min-width: 768px) {
+			padding: 4rem;
+		}
+	}
+
+	&__description {
+		font-size: $font-body-lg;
+		color: var(--color-subtitleInvert);
+		line-height: 1.8;
+		margin-bottom: 2.4rem;
+	}
+
+	&__benefits-title {
+		font-size: $font-heading-sm;
+		font-weight: 600;
+		margin-bottom: 1.6rem;
+	}
+
+	&__benefits {
+		list-style: none;
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		margin-bottom: 2.4rem;
+
+		li {
+			display: flex;
+			align-items: flex-start;
+			gap: 1rem;
+			font-size: $font-body-md;
+			color: var(--color-subtitleInvert);
+			line-height: 1.5;
+		}
+	}
+}

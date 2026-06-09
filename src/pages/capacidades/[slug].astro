@@ -1,0 +1,18 @@
+---
+import { CapacidadDetailEntry } from '@entries/CapacidadDetailEntry';
+import { capacidadesPages } from '@data/pages-content';
+import Layout from '@layouts/Layout.astro';
+
+export function getStaticPaths() {
+	return capacidadesPages.map((content) => ({
+		params: { slug: content.slug },
+		props: { content },
+	}));
+}
+
+const { content } = Astro.props;
+---
+
+<Layout>
+	<CapacidadDetailEntry client:load content={content} />
+</Layout>

@@ -1,11 +1,11 @@
-import { useTheme } from '@contexts/ThemeContext';
+import { useBodyTheme } from '@hooks/useBodyTheme';
 import { getLogoColors } from '@themes/colors';
 interface PropsLogo {
     className?: string;
 }
 
 export const Logo = ({ className }: PropsLogo) => {
-    const { currentTheme } = useTheme();
+    const { currentTheme } = useBodyTheme('white');
     const colors = getLogoColors(currentTheme);
 
     const positionWidth = 320;

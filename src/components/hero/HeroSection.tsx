@@ -1,9 +1,11 @@
 // Components
 import { FlowPulseBackground } from '@components/animations/FlowAnimationSection';
+import { ROUTES } from '@components/navbar/nav-data';
 // Hooks
 import { useScrollAnimation } from '@hooks/useScrollAnimationOptions';
 // STyles
 import '@styles/hero/hero-section.scss';
+import '@styles/shared/cta-button.scss';
 
 export const HeroSection = () => {
 
@@ -17,6 +19,15 @@ export const HeroSection = () => {
 					duration: 1000,
 					easing: 'easeOutQuart',
 					staggerDelay: 200,
+				},
+			},
+			{
+				selector: '.hero-cta',
+				animation: {
+					opacity: [0, 1],
+					translateY: [40, 0],
+					duration: 800,
+					easing: 'easeOutQuart',
 				},
 			},
 		],
@@ -37,6 +48,9 @@ export const HeroSection = () => {
 				<p className='line small'>
 					Software a la medida · Tercerización estratégica
 				</p>
+				<a href={ROUTES.contacto} className="nival-cta nival-cta--primary hero-cta">
+					Contáctanos
+				</a>
 			</article>
 		</section>
 	);

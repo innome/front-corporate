@@ -1,0 +1,110 @@
+@use "src/styles/variables" as *;
+
+.solution-guide {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 10rem 2rem;
+	max-width: 90rem;
+	margin: 0 auto;
+
+	&--embedded {
+		padding-top: 2rem;
+		min-height: unset;
+	}
+
+	.guide-fade {
+		opacity: 0;
+	}
+
+	&__header {
+		text-align: center;
+		max-width: 55ch;
+		margin-bottom: 6rem;
+	}
+
+	&__eyebrow {
+		font-size: $font-body-md;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.12em;
+		color: var(--color-subtitle);
+		margin-bottom: 1rem;
+	}
+
+	&__title {
+		font-size: $font-heading-lg;
+		font-weight: 600;
+		margin-bottom: 1.2rem;
+	}
+
+	&__subtitle {
+		font-size: $font-body-lg;
+		color: var(--color-subtitleInvert);
+	}
+
+	&__steps {
+		list-style: none;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		gap: 0;
+		position: relative;
+	}
+
+	&__step {
+		display: grid;
+		grid-template-columns: 8rem 1fr;
+		gap: 2rem;
+		padding: 2rem 0;
+
+		@media (max-width: 600px) {
+			grid-template-columns: 5rem 1fr;
+			gap: 1.2rem;
+		}
+	}
+
+	&__step-marker {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		position: relative;
+	}
+
+	&__number {
+		font-size: clamp(2.4rem, 5vw, 3.6rem);
+		font-weight: 700;
+		color: var(--color-subtitle);
+		line-height: 1;
+		z-index: 1;
+	}
+
+	&__connector {
+		flex: 1;
+		width: 2px;
+		min-height: 4rem;
+		background: linear-gradient(
+			to bottom,
+			var(--color-subtitle),
+			var(--color-acrylic)
+		);
+		margin-top: 1rem;
+	}
+
+	&__step-content {
+		padding-top: 0.4rem;
+	}
+
+	&__step-title {
+		font-size: $font-heading-sm;
+		font-weight: 600;
+		margin-bottom: 0.8rem;
+	}
+
+	&__step-desc {
+		font-size: $font-body-lg;
+		color: var(--color-subtitleInvert);
+		line-height: 1.7;
+		max-width: 55ch;
+	}
+}

@@ -1,0 +1,48 @@
+@use "src/styles/variables" as *;
+
+.page-hero {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 50dvh;
+	padding: 8rem 2rem 4rem;
+	text-align: center;
+
+	.page-hero-fade {
+		opacity: 0;
+	}
+
+	&__content {
+		max-width: 70ch;
+	}
+
+	&__eyebrow {
+		font-size: $font-body-md;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.12em;
+		color: var(--color-subtitle);
+		margin-bottom: 1rem;
+	}
+
+	&__title {
+		font-size: $font-heading-lg;
+		font-weight: 600;
+		margin-bottom: 1.2rem;
+		line-height: 1.2;
+	}
+
+	&__subtitle {
+		font-size: $font-body-lg;
+		color: var(--color-subtitleInvert);
+		line-height: 1.7;
+	}
+
+	&__actions {
+		margin-top: 2.4rem;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem;
+		justify-content: center;
+	}
+}
